@@ -11,8 +11,8 @@ class Solution {
                 map.put(arr[i],1);
             }
         }
+        
          Iterator iterator = map.entrySet().iterator(); 
-  
         int[] hold = new int[count];
         count=0;
         while (iterator.hasNext()) { 
