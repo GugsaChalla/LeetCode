@@ -8,7 +8,6 @@
  */
 class Solution {
     public int[] nextLargerNodes(ListNode head) {
-        //int n=0;
         ArrayList<Integer> list = new ArrayList<>();
         while(head!=null){
             list.add(head.val);
