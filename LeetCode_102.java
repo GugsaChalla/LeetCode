@@ -15,6 +15,7 @@ class Solution {
         ArrayList<Integer> temp=new ArrayList<>();
         LinkedList<TreeNode> queue=new LinkedList<TreeNode>(); 
         queue.add(root);
+
         while(!queue.isEmpty()){
             int size=queue.size();
             for(int i=0;i<size;i++){
