@@ -28,7 +28,6 @@ class Solution {
                     queue.add(current.right);
                 }
     
-               
             }
             res.add(temp);
             temp=new ArrayList<>();
