@@ -8,37 +8,31 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if(l1==null){
-            return l2;
-        }
-        if(l2==null){
-            return l1;
-        }
-        ListNode answer= new ListNode(0); ListNode merge=answer;
-        ListNode currentL1=l1;
-        ListNode currentL2=l2;
-        while(currentL1!=null&&currentL2!=null){
-            if(currentL1.val<currentL2.val){
-                merge.next=new ListNode(currentL1.val);
-                currentL1=currentL1.next;
-                merge=merge.next;
+        if(l1==null&&l2==null){return null;}
+  
+    ListNode res = new ListNode(0);
+        ListNode resHead=res;
+        while(l1!=null&&l2!=null){
+            if(l1.val<l2.val){
+                res.next=new ListNode(l1.val);
+                l1=l1.next;
             }
             else{
-                merge.next=new ListNode(currentL2.val);
-                currentL2=currentL2.next;
-                merge=merge.next;
+                res.next=new ListNode(l2.val);
+                l2=l2.next;
             }
+            res=res.next;
         }
-        while(currentL1!=null){
-            merge.next=currentL1;
-            currentL1=currentL1.next;
-            merge=merge.next;
+        while(l1!=null){
+            res.next=new ListNode(l1.val);
+            res=res.next;
+            l1=l1.next;
         }
-        while(currentL2!=null){
-            merge.next=currentL2;
-            currentL2=currentL2.next;
-            merge=merge.next;
+        while(l2!=null){
+            res.next=new ListNode(l2.val);
+            res=res.next;
+            l2=l2.next;
         }
-        return answer.next;
-}
+        return resHead.next;
+    }
 }
