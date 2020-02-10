@@ -16,7 +16,6 @@ class Solution {
                 stack.push(S.charAt(i));
             }
         }
-        
       while(stack.isEmpty()==false){
           builder.append(stack.pop());
       }
