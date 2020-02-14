@@ -17,7 +17,7 @@ class Solution {
                     temp=0;
                     break;
                 }
-             
+         
             }
             count+=temp;
         }
