@@ -14,6 +14,7 @@ class Solution {
             }
             listQ.add(freq);
         }
+
        // System.out.println(listQ.get(0));
          for(int k=0;k<words.length;k++){
         char smallest='z';
