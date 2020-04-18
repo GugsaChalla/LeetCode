@@ -4,15 +4,17 @@ class Solution {
         String[] arrA=A.split(" ");
         String[] arrB=B.split(" ");
         HashMap<String,Integer>map= new HashMap<>();
-        //HashSet<String> setB = new HashSet<>();
+        
         for(int i=0;i<arrA.length;i++){
             if(map.containsKey(arrA[i])){
                 map.put(arrA[i],map.get(arrA[i])+1);
             }
+            
             else{
                 map.put(arrA[i],0);
             }
         }
+        
         for(int j=0;j<arrB.length;j++){
             if(map.containsKey(arrB[j])){
                 map.put(arrB[j],map.get(arrB[j])+1);
@@ -21,6 +23,7 @@ class Solution {
                 map.put(arrB[j],0);
             }
         }
+        
         int spot=0;
         Iterator iter= map.entrySet().iterator();
         while(iter.hasNext()){
@@ -30,6 +33,7 @@ class Solution {
                 spot++;
             }
         }
+        
         String[] res = new String[spot];
         spot=0;
         Iterator iter2= map.entrySet().iterator();
