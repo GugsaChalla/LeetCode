@@ -3,9 +3,11 @@ class Solution {
         List<Integer> list = new ArrayList<>();
         int start=0,end=0;
         int[] map =new int[26];
+        
         for(int i=0;i<S.length();i++){
             map[S.charAt(i)-97]=i;
         }
+        
         for(int i=0;i<S.length();i++){
             end=Math.max(end, map[S.charAt(i)-97]);
             if(i==end){
