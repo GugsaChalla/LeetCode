@@ -14,7 +14,6 @@ class Solution {
     }
     
 public boolean dfs(int num, TreeNode current){
-        //if(current.left==null&&current.right==null){return;}
          if(current==null){return false;}
         if(num-current.val==0&&current.left==null&current.right==null){return true;}
         return dfs(num-current.val, current.left) || dfs(num-current.val,current.right);
