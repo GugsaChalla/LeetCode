@@ -4,46 +4,34 @@
  *     int val;
  *     TreeNode left;
  *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
     public TreeNode constructMaximumBinaryTree(int[] nums) {
+        return helper(nums, 0, nums.length-1);
+    }
+    
+    public TreeNode helper(int[] nums, int first, int last){
+        if(first>last) return null;
+        int index=0, max= Integer.MIN_VALUE;
         
-        if(nums.length==1){
-            TreeNode root= new TreeNode(nums[0]);
-            return root;
-        }
-        
-        int max = Integer.MIN_VALUE;
-        int index=0;
-        
-        for(int i=0;i<nums.length;i++){
+        for(int i=first;i<=last;i++){
             if(nums[i]>max){
                 max=nums[i];
-                 index=i;
+                index=i;
             }
         }
         
-        TreeNode root= new TreeNode(max);
-        if(index<nums.length-1){
-            int arr[] = new int[nums.length-1-index];
-            for(int i=index+1;i<nums.length;i++){
-                arr[i-index-1]=nums[i];
-            }
-            root.right=constructMaximumBinaryTree(arr);
-            
-        }
-        else{root.right= null;}
-        
-        if(index>0){
-            int array[] = new int[index];
-            for(int i=0;i<index;i++){
-                array[i]=nums[i];
-            }
-            root.left=constructMaximumBinaryTree(array);
-        }
-        else{root.left=null;}
+        TreeNode root = new TreeNode(max);
+        root.left=helper(nums,first,index-1); 
+        root.right= helper(nums,index+1,last);
         return root;
     }
 }
