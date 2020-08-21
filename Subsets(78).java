@@ -12,7 +12,6 @@ class Solution {
         for(int i=index;i<nums.length;i++){
             List<Integer> prev = new ArrayList<>(list);
             prev.add(nums[i]);
-            System.out.println(prev);
             helper(nums,prev,bigList,i+1);
         }
     }
