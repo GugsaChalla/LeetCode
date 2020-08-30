@@ -28,7 +28,6 @@ class Solution {
         helper(board,i,j-1,count+1,word,path);
         helper(board,i,j+1,count+1,word,path);
           
-        if(path[word.length()-1]!=true) board[i][j]=oldChar;
-        
+        if(path[word.length()-1]!=true) board[i][j]=oldChar;  
     }
 }
