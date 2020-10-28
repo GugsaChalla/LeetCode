@@ -1,18 +1,18 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<Integer> list = new ArrayList<>();
-        List<List<Integer>>bigList = new ArrayList<>();
-        Arrays.sort(nums);
-        helper(nums,list,bigList,0);
-        return bigList;
+        List<List<Integer>> list = new ArrayList<>();
+        dfs(list,nums,0,new ArrayList<>());
+        return list;
     }
-    
-    public void helper(int[] nums,List<Integer>list,List<List<Integer>>bigList, int index){
-        bigList.add(list);
-        for(int i=index;i<nums.length;i++){
-            List<Integer> prev = new ArrayList<>(list);
-            prev.add(nums[i]);
-            helper(nums,prev,bigList,i+1);
+    public void dfs(List<List<Integer>> list, int[] nums,int start,List<Integer> temp){
+        list.add(new ArrayList<>(temp));
+        for(int i =start; i<nums.length;i++){
+            temp.add(nums[i]);
+            dfs(list,nums,i+1,temp);
+            temp.remove(temp.size()-1);
         }
+        return;
     }
+
+        
 }
